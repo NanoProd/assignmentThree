@@ -40,9 +40,8 @@ public abstract class AbstractPQ<K,V> implements MyPQ<K,V>
         this.comp = comp;
     }
     //default constructor with default comparator
-    @SuppressWarnings("unchecked")
-	protected AbstractPQ(){
-        this((Comparator<K>) new DefaultComparator<K>());
+    protected AbstractPQ(){
+        this(new DefaultComparator<K>());
     }
 
     //compare two entries

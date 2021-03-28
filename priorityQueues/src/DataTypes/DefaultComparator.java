@@ -1,13 +1,13 @@
 package DataTypes;
 
-public class DefaultComparator<E> implements Comparable<E> {
+public class DefaultComparator<K> implements Comparable<K> {
     @SuppressWarnings("unchecked")
-	public int compare(E a, E b) throws ClassCastException{
-        return ((Comparable<E>) a).compareTo(b);
+	public int compare(K a, K b) throws ClassCastException{
+        return ((Comparable<K>) a).compareTo(b);
     }
 
 	@Override
-	public int compareTo(E o) {
+	public int compareTo(K o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
