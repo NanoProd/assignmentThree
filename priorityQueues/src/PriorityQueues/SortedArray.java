@@ -65,17 +65,7 @@ public class SortedArray<K,V> extends AbstractPQ<K,V> {
             return null;
         }
         else {
-            int checkSize = list.getCapacity() / 4; 
-            if(list.size() < checkSize ){
-                list.resize(list.getCapacity() / 2);
-            }
-            Entry<K,V> smallest = list.get(0);
-            for(int i = 0; i < list.size(); i++){
-                if(compare(list.get(i), smallest) < 0){
-                    smallest = list.get(i);
-                }
-            }
-        return smallest;
+            return list.get(0);
         }
     }
     
@@ -84,15 +74,11 @@ public class SortedArray<K,V> extends AbstractPQ<K,V> {
             return null;
         }
         else {
-            int index = 0;
-            Entry<K,V> smallest = list.get(0);
-            for(int i = 0; i < list.size(); i++){
-                if(compare(list.get(i), smallest) < 0){
-                    smallest = list.get(i);
-                    index = i;
-                }
+            int checkSize = list.getCapacity() / 4; 
+            if(list.size() < checkSize ){
+                list.resize(list.getCapacity() / 2);
             }
-            return list.remove(index);
+            return list.remove(0);
         }
     }
 
