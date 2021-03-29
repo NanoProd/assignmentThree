@@ -15,7 +15,7 @@ public class SortedArray<K,V> extends AbstractPQ<K,V> {
     }
 
     
-    public  int binaryInsert(Entry<K,V> insertKey){
+    public static int binaryInsert(Entry<K,V> insertKey){
         if(list.size() == 0){
             return 0;
         }
@@ -59,8 +59,8 @@ public class SortedArray<K,V> extends AbstractPQ<K,V> {
             return newEntry;
             }
         }
-    
-	public Entry<K,V> min(){
+
+    public Entry<K,V> min(){
         if(list.isEmpty()){
             return null;
         }

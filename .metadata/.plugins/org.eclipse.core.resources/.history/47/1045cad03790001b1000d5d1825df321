@@ -59,7 +59,6 @@ public class SortedArray<K,V> extends AbstractPQ<K,V> {
             return newEntry;
             }
         }
-    
 	public Entry<K,V> min(){
         if(list.isEmpty()){
             return null;
