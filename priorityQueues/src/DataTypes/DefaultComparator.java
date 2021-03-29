@@ -1,14 +1,9 @@
 package DataTypes;
+import java.util.Comparator;
 
-public class DefaultComparator<K> implements Comparable<K> {
-    @SuppressWarnings("unchecked")
-	public int compare(K a, K b) throws ClassCastException{
-        return ((Comparable<K>) a).compareTo(b);
+public class DefaultComparator<K extends Comparable<? super K>> implements Comparator<K> {
+    public int compare(K a, K b)
+    {
+        return a.compareTo(b);
     }
-
-	@Override
-	public int compareTo(K o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
