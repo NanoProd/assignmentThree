@@ -42,7 +42,7 @@ public abstract class AbstractPQ<K,V> implements MyPQ<K,V>
     //default constructor with default comparator
     @SuppressWarnings("unchecked")
 	protected AbstractPQ(){
-        this((Comparator<K>) new DefaultComparator<K>());
+        this((Comparator<K>) new DefaultComparator<>());
     }
 
     //compare two entries
@@ -63,5 +63,4 @@ public abstract class AbstractPQ<K,V> implements MyPQ<K,V>
     public boolean isEmpty(){
         return size() == 0;
     }
-    
 }
