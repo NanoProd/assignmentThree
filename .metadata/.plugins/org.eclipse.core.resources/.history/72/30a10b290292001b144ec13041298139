@@ -20,9 +20,12 @@ public class UnsortedList<K,V> extends AbstractPQ<K,V> {
         }
         Node<Entry<K,V>> current = list.first();
         Node<Entry<K,V>> minimum = list.first();
-        while(current.getElement() != null){
+        while(current != null){
             if(compare(current.getElement(), minimum.getElement()) < 0){
                 minimum = current;
+            }
+            if(current.getElement() == null){
+                return minimum;
             }
             current = current.getNext();
         }

@@ -3,8 +3,7 @@ import DataTypes.*;
 
 public class SortedArray<K,V> extends AbstractPQ<K,V> {
     private ArrayList<Entry<K,V>> list = new ArrayList<>();
-    @SuppressWarnings("unused")
-	private Entry<K,V> smallest = null;
+    private Entry<K,V> smallest = null;
     //constructors
     public SortedArray(){
         super();

@@ -24,10 +24,10 @@ public class Driver {
             // for unsorted array
             long startTime = System.currentTimeMillis();
             for (int n = 0; n < 10; n++) {
-               // while ((line = inputStream.readLine()) != null) {
+                if(inputStream.readLine() != null){
                     line = inputStream.readLine();
                     unsortArray.insert(n, line);
-              //  }
+                }
             }
             long endTime = System.currentTimeMillis();
             long elapsed = endTime - startTime;
@@ -47,7 +47,7 @@ public class Driver {
             inputStream = new BufferedReader(new FileReader(file));
             startTime = System.currentTimeMillis();
             for (int n = 0; n < 10; n++) {
-                while ((line = inputStream.readLine()) != null) {
+                if(inputStream.readLine() != null){
                     line = inputStream.readLine();
                     unsortList.insert(n, line);
                 }
@@ -70,10 +70,10 @@ public class Driver {
             inputStream = new BufferedReader(new FileReader(file));
             startTime = System.currentTimeMillis();
             for (int n = 0; n < 10; n++) {
-               // while ((line = inputStream.readLine()) != null) {
+                if(inputStream.readLine() != null){
                     line = inputStream.readLine();
                     sortArray.insert(n, line);
-              //  }
+              }
             }
             endTime = System.currentTimeMillis();
             elapsed = endTime - startTime;
@@ -93,10 +93,10 @@ public class Driver {
             inputStream = new BufferedReader(new FileReader(file));
             startTime = System.currentTimeMillis();
             for (int n = 0; n < 10; n++) {
-              //  while ((line = inputStream.readLine()) != null) {
+                if(inputStream.readLine() != null){
                     line = inputStream.readLine();
                     sortList.insert(n, line);
-                //}
+                }
             }
             endTime = System.currentTimeMillis();
             elapsed = endTime - startTime;
@@ -111,6 +111,7 @@ public class Driver {
             System.out.println("MyPQsortedList, for N = 10, removeMin(K,V) took " + elapsed + " ms");
             inputStream.close();
             
+            /*
             //for n = 100
              // for unsorted array
              startTime = System.currentTimeMillis();
@@ -567,6 +568,7 @@ public class Driver {
             elapsed = endTime - startTime;
             System.out.println("MyPQsortedList, for N = 10, removeMin(K,V) took " + elapsed + " ms");
             inputStream.close();
+            */
 
         } catch (FileNotFoundException e) {
             System.out.println(e.toString());

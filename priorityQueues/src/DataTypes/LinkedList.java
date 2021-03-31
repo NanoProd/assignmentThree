@@ -8,12 +8,6 @@ public class LinkedList<E> {
         private Node<E> prev;
         private Node<E> next;
         //constructor
-        public Node(){
-            element = null;
-            prev = null;
-            next = null;
-            comp = new DefaultComparator<>();
-        }
         public Node(E e, Node<E> p , Node<E> n) {
             element = e;
             prev = p;

@@ -24,6 +24,9 @@ public class UnsortedList<K,V> extends AbstractPQ<K,V> {
             if(compare(current.getElement(), minimum.getElement()) < 0){
                 minimum = current;
             }
+            if(current.getElement() == null){
+                return minimum;
+            }
             current = current.getNext();
         }
 
