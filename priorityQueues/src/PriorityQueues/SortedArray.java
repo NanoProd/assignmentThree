@@ -1,17 +1,15 @@
 package PriorityQueues;
-import DataTypes.ArrayList;
-import java.util.Comparator;
+import DataTypes.*;
 
 public class SortedArray<K,V> extends AbstractPQ<K,V> {
     private ArrayList<Entry<K,V>> list = new ArrayList<>();
     private Entry<K,V> smallest = null;
-
     //constructors
     public SortedArray(){
         super();
     }
-    public SortedArray(Comparator<K> comp){
-        super(comp);
+    public SortedArray(DefaultComparator<K> comparator){
+        super( new DefaultComparator<K>());
     }
 
     

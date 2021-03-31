@@ -1,6 +1,6 @@
 package PriorityQueues;
 import DataTypes.ArrayList;
-import java.util.Comparator;
+import DataTypes.*;
 
 public class UnsortedArray<K,V> extends AbstractPQ<K,V> {
     private ArrayList<Entry<K,V>> list = new ArrayList<>();
@@ -9,7 +9,7 @@ public class UnsortedArray<K,V> extends AbstractPQ<K,V> {
     public UnsortedArray(){
         super();
     }
-    public UnsortedArray(Comparator<K> comp){
+    public UnsortedArray(DefaultComparator<K> comp){
         super(comp);
     }
 

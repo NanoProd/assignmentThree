@@ -1,6 +1,7 @@
 package PriorityQueues;
-import java.util.Comparator;
-import DataTypes.LinkedList;
+import javax.swing.text.Position;
+
+import DataTypes.*;
 import DataTypes.LinkedList.Node;
 
 public class UnsortedList<K,V> extends AbstractPQ<K,V> {
@@ -10,26 +11,34 @@ public class UnsortedList<K,V> extends AbstractPQ<K,V> {
     public UnsortedList() {
         super();
     }
-    public UnsortedList(Comparator<K> comp) {
-        super(comp);
+    public UnsortedList(DefaultComparator<K> comp) {
+        super(new DefaultComparator<K>());
     }
     
-    public Entry<K,V> min() {
-        if(list.isEmpty()) {
+    public Entry<K, V> min(){
+        if(isEmpty()){
             return null;
-        } else {
-            Node<Entry<K,V>> position = list.first();
-            Node<Entry<K,V>> smallest = list.first();
-            while(position != null){
-                if(compare(position.getElement(), smallest.getElement()) < 0){
-                    smallest = position;
-                }
-                position = position.getNext();
-            }
-            return smallest.getElement();
         }
+        Entry<K, V> current = (Entry<K, V>) list.first(); 
+        Entry<K,V> min = (Entry<K, V>) current;
+        while(current != null){
+            if(current != null){
+                if(compare(current, min) < 0){
+                    min = current;
+                }
+            }
+            current = current.getNext();
+        }
+        return min;
     }
-    public Entry<K,V> removeMin() {
+
+    public Entry<K,V> removeMin(){
+        if(list.isEmpty()){return null;}
+        Entry<K, V> min = this.min();
+        return list.remove(min);
+    }
+
+    /*public Entry<K,V> removeMin() {
         if(list.isEmpty()) {
             return null;
         }
@@ -45,6 +54,7 @@ public class UnsortedList<K,V> extends AbstractPQ<K,V> {
             return list.remove(smallest);            
         }
     }
+    */
 
     public int size(){
         return list.size();

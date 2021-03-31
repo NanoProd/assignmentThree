@@ -1,17 +1,17 @@
 package PriorityQueues;
-import java.util.Comparator;
+import DataTypes.DefaultComparator;
 import DataTypes.LinkedList;
 import DataTypes.LinkedList.Node;
 
-public class SortedList<K,V> extends AbstractPQ<K,V> {
+public class SortedList<K,V> extends AbstractPQ<K,V>{
     private LinkedList<Entry<K,V>> list = new LinkedList<>();
 
     //constructors
     public SortedList() {
         super();
     }
-    public SortedList(Comparator<K> comp) {
-        super(comp);
+    public SortedList(DefaultComparator<K> comp) {
+        super(new DefaultComparator<K>());
     }
     
     public Entry<K,V> insert(K key, V value) throws IllegalArgumentException {

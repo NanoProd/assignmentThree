@@ -1,4 +1,4 @@
-removepackage DataTypes;
+package DataTypes;
 
 public class LinkedList<E> {
     //inner node class
@@ -12,6 +12,7 @@ public class LinkedList<E> {
             element = null;
             prev = null;
             next = null;
+            comp = new DefaultComparator<>();
         }
         public Node(E e, Node<E> p , Node<E> n) {
             element = e;
@@ -53,6 +54,9 @@ public class LinkedList<E> {
     public boolean isEmpty() {
             return size == 0;
     }
+    public Node<E> getHead(){
+        return head;
+    }
     public Node<E> first(){
         if(isEmpty()){
             return null;
@@ -65,11 +69,11 @@ public class LinkedList<E> {
             return null;
         return tail.getPrev();
     }
-    public void insert(E e, Node<E> prev, Node<E> next){
+    public void insert(E e, Node<E> pred, Node<E> succ){
         //create new node
-        Node<E> newest = new Node<>(e, prev, next);
-        prev.setNext(newest);
-        next.setPrev(newest);
+        Node<E> newest = new Node<>(e,pred,succ);
+        pred.setNext(newest);
+        succ.setPrev(newest);
         size++;
     }
     public void addFirst(E e){
@@ -79,10 +83,10 @@ public class LinkedList<E> {
         insert(e, tail.getPrev(), tail);
     }
     public E remove(Node<E> node) {
-        Node<E> next = node.getNext();
-        Node<E> prev = node.getPrev();
-        next.setNext(next);
-        prev.setPrev(prev);
+        Node<E> pred = node.getPrev();
+        Node<E> succ = node.getNext();
+        pred.setNext(succ);
+        succ.setPrev(pred);
         size--;
         return node.getElement();
     }
@@ -100,6 +104,23 @@ public class LinkedList<E> {
             return remove(tail.getPrev());
         }
     }
+
+    /*     public Node<E> getMin(){
+        if(isEmpty()){
+            return null;
+        }
+        Node<E> current = head; 
+        Node<E> min = current;
+        while(current != null){
+            if(current != null){
+                if(min.compare(current) > 0){
+                    min = current;
+                }
+            }
+            current = current.getNext();
+        }
+    }*/
+
     
     
 }

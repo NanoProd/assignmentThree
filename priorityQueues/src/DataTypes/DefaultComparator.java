@@ -1,9 +1,9 @@
 package DataTypes;
 import java.util.Comparator;
 
-public class DefaultComparator<K extends Comparable<? super K>> implements Comparator<K> {
-    public int compare(K a, K b)
+public class DefaultComparator<K> implements Comparator<K> {
+    public int compare(K a, K b) throws ClassCastException
     {
-        return a.compareTo(b);
+        return ((Comparable<K>) a).compareTo(b);
     }
 }

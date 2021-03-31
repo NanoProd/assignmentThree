@@ -1,12 +1,10 @@
 package PriorityQueues;
 
 import java.lang.IllegalArgumentException;
-import java.util.Comparator;
 import DataTypes.DefaultComparator;
 
 
-public abstract class AbstractPQ<K,V> implements MyPQ<K,V>
-{
+public abstract class AbstractPQ<K,V> implements MyPQ<K,V>{ 
     //nested entry class
     protected static class PQEntry<K,V> implements Entry<K,V>{
         private K k; //key
@@ -33,28 +31,30 @@ public abstract class AbstractPQ<K,V> implements MyPQ<K,V>
     }//end of nested class
 
     //define the order of keys in the priority queue
-    private Comparator<K> comp;
+    private DefaultComparator<K> comp;
 
     //constructor, initializes empty priority queue
-    protected AbstractPQ(Comparator<K> comp){
+    protected AbstractPQ(DefaultComparator<K> comp){
         this.comp = comp;
     }
     //default constructor with default comparator
-    @SuppressWarnings("unchecked")
 	protected AbstractPQ(){
-        this((Comparator<K>) new DefaultComparator<>());
+        this( new DefaultComparator<>());
     }
 
     //compare two entries
-    protected int compare(Entry<K,V> a, Entry<K,V> b){
-        return comp.compare(a.getKey(), b.getKey());
+    /*
+     * 
+     *
+     */
+    public int compare(Entry<K,V> a, Entry<K,V> b){
+       return comp.compare(a.getKey(),b.getKey());
     }
     //determines whether a key is valid
     protected boolean checkKey(K key) throws IllegalArgumentException{
         try {
             return (comp.compare(key,key) == 0); //see if key can be compared to itself
         } catch (Exception e) {
-            //TODO: handle exception
             throw new IllegalArgumentException("Invalid key");
         }
     }
