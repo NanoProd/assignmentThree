@@ -23,7 +23,7 @@ public class SortedList<K,V> extends AbstractPQ<K,V>{
         } else {
             Node<Entry<K,V>> position = list.first();
             Node<Entry<K,V>> target = null;
-            while(position != null){
+            while(position.getNext().getElement() != null && position.getPrev().getElement() != null){
                 if(compare(newEntry, position.getPrev().getElement()) >= 0 && (compare(newEntry, position.getNext().getElement()) < 0)){
                     target = position;
                 }
